@@ -8,7 +8,7 @@ FSJS project 2 - List Filter and Pagination
 
 /*
    I got the ul element and then got the child elements of the ul which is li.
-   I stored the number of students per page in the itemNumber variable. 
+   I stored the number of students per page in the variable itemNumber. 
 */
 const ul = document.querySelector('.student-list')
 const students = ul.children;
@@ -38,17 +38,20 @@ function showPage(list, page) {
    functionality to the pagination buttons.
 ***/
 
+/*
+   Accessed the main div and stored it in the variable mainDiv.
+*/
 function appendPageLinks(list) {
    const mainDiv = document.querySelector('.page');
-   let div = document.createElement('div');
+   const div = document.createElement('div');
    div.className += 'pagination';
-   let ul = document.createElement('ul')
+   const ul = document.createElement('ul')
    div.appendChild(ul)
-   const pages = Math.ceil(list.length/10);
+   const pages = Math.ceil(list.length/itemNumber); // Calculates the number of links based on the number of students.
    for(let i = 1; i <= pages; i++) {
       const li = document.createElement('li');
       const a = document.createElement('a');
-      if(i === 1) {
+      if(i === 1) { // Adds the active class to the first page initially.
          a.className = 'active';
       }
       a.href += '#'
@@ -57,14 +60,14 @@ function appendPageLinks(list) {
       ul.appendChild(li);
       a.addEventListener('click', () => {
          const active = document.querySelectorAll('.active');
-         event.target.className = 'active';
+         event.target.className = 'active'; // Adds the active class to the link clicked on.
          for(let j = 0; j < active.length; j++) { 
-            active[j].className = '';
+            active[j].className = ''; // Removes the active class from all non-active links.
          }
-         showPage(students, i);
+         showPage(students, i); // Displays ten students per page, based on the page link clicked. 
       })
    }
-   mainDiv.appendChild(div);
+   mainDiv.appendChild(div); // Appends the created div and everyting inside of it, to the main div.
 }
 
 /*
