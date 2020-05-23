@@ -2,12 +2,9 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
-   
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-
 
 /*
-   I got the ul element and then got the child elements of the ul which is li.
+   I got the ul element and then got the child elements of the ul which are the li elements.
    I stored the number of students per page in the variable itemNumber. 
 */
 const ul = document.querySelector('.student-list')
@@ -17,7 +14,7 @@ const itemNumber = 10;
 
 /*
    Created a function called showPage that holds two parameter list and page.
-   List holds the student list and page holds the page number.
+   The list parameter holds the student list and the page parameter holds the page number.
    I created two variable that store the students to be display based on the page link clicked on. 
    I created a loop to display the students.
    I hid all students and then only displayed the students that correspond to the page number. 
@@ -33,13 +30,12 @@ function showPage(list, page) {
    }
 }
 
-/*** 
-   Create the `appendPageLinks function` to generate, append, and add 
-   functionality to the pagination buttons.
-***/
 
 /*
+   The appendPageLinks functions hold one parameter, list which holds the student list. 
+   This function displays all the page links dynamically, based on the number of students.
    Accessed the main div and stored it in the variable mainDiv.
+   Created a div and ul element and then appended the ul elmenet within the div. 
 */
 function appendPageLinks(list) {
    const mainDiv = document.querySelector('.page');
