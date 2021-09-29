@@ -1,2 +1,3 @@
 # Techdegree-Project-2
- Pagination
+Pagination,  
+I only wrote the JavaScript Code.
